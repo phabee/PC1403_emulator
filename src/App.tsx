@@ -1,11 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { Emulator } from './core/Emulator';
+import faceplateWith from './assets/pc1403_faceplate.jpg';
+import { mapPhysicalKey } from './utils/keyMapping';
+import initialKeyLayout from './assets/key_mapping.json';
+
+
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const emulatorRef = useRef<Emulator | null>(null);
   const [running, setRunning] = useState(false);
+  // const [keyLayout] = useState<KeyPosition[]>(initialKeyLayout); // Removed to allow HMR updates
+  const keyLayout = initialKeyLayout;
 
   useEffect(() => {
     if (canvasRef.current && !emulatorRef.current) {
@@ -14,6 +21,35 @@ function App() {
 
     return () => {
       emulatorRef.current?.stop();
+    };
+  }, []);
+
+
+
+  // Keyboard Event Handling
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!emulatorRef.current) return;
+      const key = mapPhysicalKey(e);
+      if (key) {
+        emulatorRef.current.keyboard.setKey(key, true);
+      }
+    };
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (!emulatorRef.current) return;
+      const key = mapPhysicalKey(e);
+      if (key) {
+        emulatorRef.current.keyboard.setKey(key, false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
     };
   }, []);
 
@@ -51,7 +87,7 @@ function App() {
     <div className="app-container">
       <div className="calculator-wrapper">
         {/* Background Image Layer */}
-        <img src="/pc1403_faceplate.jpg" className="faceplate-bg" alt="PC-1403" />
+        <img src={faceplateWith} className="faceplate-bg" alt="PC-1403" />
 
         {/* LCD Layer */}
         <div className="lcd-container">
@@ -63,7 +99,22 @@ function App() {
           {/* Example Power Button Area */}
           <div className="key-area power-btn" onClick={togglePower} title="Power ON/OFF"></div>
 
-          {/* We will need to map all keys here */}
+          {keyLayout.map((k) => (
+            <div
+              key={k.name}
+              className="key-area"
+              style={{
+                top: typeof k.top === 'number' ? `${k.top}%` : k.top,
+                left: typeof k.left === 'number' ? `${k.left}%` : k.left,
+                width: typeof k.width === 'number' ? `${k.width}%` : k.width,
+                height: typeof k.height === 'number' ? `${k.height}%` : k.height,
+              }}
+              onMouseDown={() => emulatorRef.current?.keyboard.setKey(k.name, true)}
+              onMouseUp={() => emulatorRef.current?.keyboard.setKey(k.name, false)}
+              onMouseLeave={() => emulatorRef.current?.keyboard.setKey(k.name, false)}
+              title={k.label}
+            />
+          ))}
         </div>
       </div>
 

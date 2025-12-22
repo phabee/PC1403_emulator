@@ -1,34 +1,62 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  /* Ensure body matches container */
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  /* Prevent horizontal scrollbar if possible */
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 20px;
   background-color: #f0f0f0;
   min-height: 100vh;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .calculator-wrapper {
   position: relative;
-  /* Adjust width/height based on actual image aspect ratio. 
-     Assuming image is roughly 800px wide. */
-  width: 800px; 
+  /* Let the image define the dimensions */
+  width: fit-content;
+  max-width: 100%;
   height: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* Ensure no background color leaks if image is transparent or loading */
+  background: white;
 }
 
 .faceplate-bg {
   width: 100%;
-  border-radius: 4px; /* Optional slight rounding */
+  border-radius: 4px;
+  /* Optional slight rounding */
   display: block;
 }
 
 .lcd-container {
   position: absolute;
-  top: 15%; /* Adjust based on image */
-  left: 20%; /* Adjust based on image */
-  width: 50%; /* Adjust based on image */
-  height: 10%; /* Adjust based on image */
-  background-color: #9ea7a140; /* Transparent greenish overlay to visualize position during debug */
+  top: 15%;
+  /* Adjust based on image */
+  left: 20%;
+  /* Adjust based on image */
+  width: 50%;
+  /* Adjust based on image */
+  height: 10%;
+  /* Adjust based on image */
+  background-color: #9ea7a140;
+  /* Transparent greenish overlay to visualize position during debug */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,9 +64,11 @@
 }
 
 .lcd-canvas {
-  width: 95%; /* Fit inside container with margin */
+  width: 95%;
+  /* Fit inside container with margin */
   height: 80%;
-  image-rendering: pixelated; /* Sharp pixels */
+  image-rendering: pixelated;
+  /* Sharp pixels */
 }
 
 .keys-overlay {
@@ -47,24 +77,32 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* pointer-events: none; If we want to click through, but we want to capture clicks */
+  pointer-events: none;
+  /* Let non-key clicks pass through */
 }
 
 .key-area {
   position: absolute;
   cursor: pointer;
-  background-color: rgba(255, 0, 0, 0.2); /* Debug color for keys, remove later */
-  border-radius: 2px;
+  pointer-events: auto;
+  /* Enable clicking on keys */
+  /* Debug borders - remove later */
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 10;
 }
 
 .key-area:hover {
-  background-color: rgba(255, 255, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.key-area:active {
+  background-color: rgba(255, 255, 0, 0.4);
 }
 
 .power-btn {
-  /* Example position */
   top: 10%;
-  right: 10%;
+  right: 18%;
   width: 5%;
   height: 5%;
 }
@@ -74,8 +112,10 @@
   padding: 10px;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
+  color: black;
+  /* Enforce black text */
 }
 
 button {
@@ -87,6 +127,7 @@ button {
   border: none;
   border-radius: 4px;
 }
+
 button:hover {
   background-color: #0056b3;
 }

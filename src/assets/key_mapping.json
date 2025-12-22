@@ -1,0 +1,474 @@
+[
+    {
+        "name": "CAL",
+        "label": "CAL",
+        "top": "168px",
+        "left": "26px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "Q",
+        "label": "Q",
+        "top": "210px",
+        "left": "26px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "A",
+        "label": "A",
+        "top": "253px",
+        "left": "26px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "DEF",
+        "label": "DEF",
+        "top": 28,
+        "left": 14,
+        "width": 4,
+        "height": 6
+    },
+    {
+        "name": "SHIFT",
+        "label": "SHIFT",
+        "top": 28,
+        "left": 20,
+        "width": 4,
+        "height": 6
+    },
+    {
+        "name": "BRK",
+        "label": "BRK",
+        "top": 28,
+        "left": 86,
+        "width": 4,
+        "height": 6
+    },
+    {
+        "name": "ON",
+        "label": "ON",
+        "top": 28,
+        "left": 92,
+        "width": 4,
+        "height": 6
+    },
+    {
+        "name": "hyp",
+        "label": "hyp",
+        "top": 38,
+        "left": 14,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "sin",
+        "label": "sin",
+        "top": 38,
+        "left": 20,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "cos",
+        "label": "cos",
+        "top": 38,
+        "left": 26,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "tan",
+        "label": "tan",
+        "top": 38,
+        "left": 32,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "C-CE",
+        "label": "C-CE",
+        "top": 38,
+        "left": 38,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "->",
+        "label": "->",
+        "top": 38,
+        "left": 44,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "EXP",
+        "label": "EXP",
+        "top": 38,
+        "left": 50,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "yx",
+        "label": "yx",
+        "top": 38,
+        "left": 56,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "sqr",
+        "label": "sqr",
+        "top": 38,
+        "left": 62,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "F-E",
+        "label": "F-E",
+        "top": 38,
+        "left": 68,
+        "width": 5,
+        "height": 8
+    },
+    {
+        "name": "W",
+        "label": "W",
+        "top": 50,
+        "left": 19.8,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "E",
+        "label": "E",
+        "top": 50,
+        "left": 25.6,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "R",
+        "label": "R",
+        "top": 50,
+        "left": 31.4,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "T",
+        "label": "T",
+        "top": 50,
+        "left": 37.2,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "Y",
+        "label": "Y",
+        "top": 50,
+        "left": 43,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "U",
+        "label": "U",
+        "top": 50,
+        "left": 48.8,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "I",
+        "label": "I",
+        "top": 50,
+        "left": 54.6,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "O",
+        "label": "O",
+        "top": 50,
+        "left": 60.4,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "P",
+        "label": "P",
+        "top": 50,
+        "left": 66.2,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "S",
+        "label": "S",
+        "top": 60,
+        "left": 21.8,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "D",
+        "label": "D",
+        "top": 60,
+        "left": 27.6,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "F",
+        "label": "F",
+        "top": 60,
+        "left": 33.4,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "G",
+        "label": "G",
+        "top": 60,
+        "left": 39.2,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "H",
+        "label": "H",
+        "top": 60,
+        "left": 45,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "J",
+        "label": "J",
+        "top": 60,
+        "left": 50.8,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "K",
+        "label": "K",
+        "top": 60,
+        "left": 56.6,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "L",
+        "label": "L",
+        "top": 60,
+        "left": 62.4,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "ENTER",
+        "label": "ENTER",
+        "top": 60,
+        "left": 68.2,
+        "width": 10,
+        "height": 10
+    },
+    {
+        "name": "Z",
+        "label": "Z",
+        "top": 72,
+        "left": 18,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "X",
+        "label": "X",
+        "top": 72,
+        "left": 23.8,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "C",
+        "label": "C",
+        "top": 72,
+        "left": 29.6,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "V",
+        "label": "V",
+        "top": 72,
+        "left": 35.4,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "B",
+        "label": "B",
+        "top": 72,
+        "left": 41.2,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "N",
+        "label": "N",
+        "top": 72,
+        "left": 47,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "M",
+        "label": "M",
+        "top": 72,
+        "left": 52.8,
+        "width": 5,
+        "height": 10
+    },
+    {
+        "name": "SPC",
+        "label": "SPC",
+        "top": 72,
+        "left": 58.6,
+        "width": 14,
+        "height": 10
+    },
+    {
+        "name": "7",
+        "label": "7",
+        "top": 50,
+        "left": 80,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "8",
+        "label": "8",
+        "top": 50,
+        "left": 85,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "9",
+        "label": "9",
+        "top": 50,
+        "left": 90,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "/",
+        "label": "/",
+        "top": 50,
+        "left": 95,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "4",
+        "label": "4",
+        "top": 60,
+        "left": 80,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "5",
+        "label": "5",
+        "top": 60,
+        "left": 85,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "6",
+        "label": "6",
+        "top": 60,
+        "left": 90,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "*",
+        "label": "*",
+        "top": 60,
+        "left": 95,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "1",
+        "label": "1",
+        "top": 70,
+        "left": 80,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "2",
+        "label": "2",
+        "top": 70,
+        "left": 85,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "3",
+        "label": "3",
+        "top": 70,
+        "left": 90,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "-",
+        "label": "-",
+        "top": 70,
+        "left": 95,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "0",
+        "label": "0",
+        "top": 80,
+        "left": 80,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": ".",
+        "label": ".",
+        "top": 80,
+        "left": 85,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "+",
+        "label": "+",
+        "top": 80,
+        "left": 90,
+        "width": 4.5,
+        "height": 8
+    },
+    {
+        "name": "=",
+        "label": "=",
+        "top": 80,
+        "left": 95,
+        "width": 4.5,
+        "height": 8
+    }
+]
