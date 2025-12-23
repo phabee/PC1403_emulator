@@ -1,0 +1,258 @@
+[
+    {
+        "name": "CAL",
+        "label": "CAL",
+        "top": "168px",
+        "left": "26px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "Q",
+        "label": "Q",
+        "top": "210px",
+        "left": "26px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "A",
+        "label": "A",
+        "top": "253px",
+        "left": "26px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "Z",
+        "label": "Z",
+        "top": "296px",
+        "left": "26px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "BASIC",
+        "label": "BASIC",
+        "top": "168px",
+        "left": "75px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "W",
+        "label": "W",
+        "top": "210px",
+        "left": "75px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "S",
+        "label": "S",
+        "top": "253px",
+        "left": "75px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "X",
+        "label": "X",
+        "top": "296px",
+        "left": "75px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "BRK",
+        "label": "BRK",
+        "top": "168px",
+        "left": "123px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "E",
+        "label": "E",
+        "top": "210px",
+        "left": "123px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "D",
+        "label": "D",
+        "top": "253px",
+        "left": "123px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "C",
+        "label": "C",
+        "top": "296px",
+        "left": "123px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "DEF",
+        "label": "DEF",
+        "top": "167px",
+        "left": "171px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "R",
+        "label": "R",
+        "top": "209px",
+        "left": "171px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "F",
+        "label": "F",
+        "top": "252px",
+        "left": "171px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "V",
+        "label": "V",
+        "top": "295px",
+        "left": "171px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "DOWN",
+        "label": "DOWN",
+        "top": "167px",
+        "left": "219px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "T",
+        "label": "T",
+        "top": "209px",
+        "left": "219px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "G",
+        "label": "G",
+        "top": "252px",
+        "left": "219px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "B",
+        "label": "B",
+        "top": "295px",
+        "left": "219px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "UP",
+        "label": "UP",
+        "top": "167px",
+        "left": "267px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "Y",
+        "label": "Y",
+        "top": "209px",
+        "left": "267px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "H",
+        "label": "H",
+        "top": "252px",
+        "left": "267px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "N",
+        "label": "N",
+        "top": "295px",
+        "left": "267px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "LEFT",
+        "label": "LEFT",
+        "top": "167px",
+        "left": "315px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "U",
+        "label": "U",
+        "top": "209px",
+        "left": "315px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "J",
+        "label": "J",
+        "top": "252px",
+        "left": "315px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "M",
+        "label": "M",
+        "top": "295px",
+        "left": "315px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "RIGHT",
+        "label": "RIGHT",
+        "top": "167px",
+        "left": "361px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "I",
+        "label": "I",
+        "top": "209px",
+        "left": "361px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "K",
+        "label": "K",
+        "top": "252px",
+        "left": "361px",
+        "width": "29px",
+        "height": "15px"
+    },
+    {
+        "name": "SPC",
+        "label": "SPC",
+        "top": "295px",
+        "left": "361px",
+        "width": "29px",
+        "height": "15px"
+    }
+]

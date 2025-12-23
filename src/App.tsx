@@ -3,7 +3,7 @@ import './App.css';
 import { Emulator } from './core/Emulator';
 import faceplateWith from './assets/pc1403_faceplate.jpg';
 import { mapPhysicalKey } from './utils/keyMapping';
-import initialKeyLayout from './assets/key_mapping.json';
+import initialKeyLayout from './config/key_mapping.json';
 
 
 
