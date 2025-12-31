@@ -1,7 +1,7 @@
 # csv_to_bin.py
 
-input_file = "src/rom/sharp pc-1403 ROM.csv"
-output_file = "src/rom/sharp pc-1403 ROM.rom"
+input_file = "src/rom/sharp pc-1403 ROM ext.csv"
+output_file = "src/rom/sharp pc-1403 ROM ext.rom"
 
 bytes_out = bytearray()
 

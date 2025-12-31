@@ -30,5 +30,7 @@ export class Bus {
                 return;
             }
         }
+        // Log unknown writes to find LCD address
+        console.warn(`[Bus] Write to unknown address: 0x${address.toString(16).toUpperCase()} = 0x${value.toString(16)}`);
     }
 }

@@ -26,6 +26,8 @@ function createWindow() {
         // In prod, load from the dist folder
         // Note: requires correct relative path during build
         win.loadFile(path.join(__dirname, '../dist/index.html'));
+        // Debugging: Enable DevTools in production for now
+        win.webContents.openDevTools();
     }
 }
 

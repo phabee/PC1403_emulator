@@ -91,7 +91,8 @@ export const KEY_MAP: Record<string, KeyMapping> = {
 
     // Strobe 10 (EXTRA/MODE?) - Usually mapped specially or high strobe
     "BRK": { strobe: 10, bit: 0 }, // KEY_EXTRA 0x01
-    // "RESET": ...
+    "CLS": { strobe: 10, bit: 1 }, // Assumption: CLS next to BRK?
+    "ON": { strobe: 10, bit: 0 }, // Map ON to BRK for now
     "CAL": { strobe: 11, bit: 0 }, // Mode switch?
     "BASIC": { strobe: 11, bit: 1 },
 };

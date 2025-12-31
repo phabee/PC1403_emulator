@@ -21,47 +21,42 @@ export class Emulator {
         this.keyboard = new Keyboard();
 
         // Initialize Memory
-        // Internal ROM (0x0000 - 0x1FFF)
-        this.internalRom = new Memory(0x2000, true);
-        this.bus.register(this.internalRom, 0x0000, 0x1FFF);
+        // Internal ROM: Resize to 64KB to accommodate larger ROM files
+        // We register external RAM *before* ROM so RAM takes precedence if ranges overlap
+        // (assuming Bus checks in order).
+        // Wait, Bus.ts checks in order of push. 
+        // So we should push RAM/LCD first if we want them to overlay ROM.
 
-        // External RAM (Example mapping, needs verification)
-        // PC-1403 RAM: 8KB. Mapped at?
-        // Often 0xC000 or similar? 
-        // MAME source would tell. 
-        // Let's assume 8KB at 0xC000 for now.
+        // External RAM (8KB normally)
         this.externalRam = new Memory(0x2000);
         this.bus.register(this.externalRam, 0xC000, 0xDFFF);
 
-        // Register Keyboard/LCD to Bus (if memory mapped) or just hold refs.
-        // In SC61860, I/O is often via specific instructions (INA, OUTA, etc)
-        // which might not go through the Main Bus 16-bit address space.
-        // They go through the I/O bus or internal registers.
-        // For now, CPU needs reference to Keyboard/LCD.
+        // LCD (Mapping to likely IO area or verify)
+        this.bus.register(this.lcd, 0x3000, 0x3018);
+
+        // Internal ROM (Map to 0x0000 - 0xBFFF or full 64K)
+        // If we map 0-FFFF, we catch everything else.
+        this.internalRom = new Memory(0x10000, true); // 64KB
+        this.bus.register(this.internalRom, 0x0000, 0xFFFF);
 
         // We can inject them into CPU:
         this.cpu.setDevices(this.lcd, this.keyboard);
     }
 
     public boot() {
+        console.log('[Emulator] Booting...');
         this.lcd.clear(); // Ensure screen is clean on boot
         this.cpu.reset();
         this.start();
     }
 
     public start() {
-        if (this.animationFrameId) return;
+        console.log('[Emulator] Starting main loop...');
+        if (this.animationFrameId) {
+            console.log('[Emulator] Loop already running, skipping start.');
+            return;
+        }
         const loop = () => {
-            // Echo Test Mode: Check keys and print
-            // TODO: Remove this once CPU logic is running
-            const keys = this.keyboard.getPressedKeys();
-            if (keys.length > 0) {
-                // Determine cursor position? For now just print first key at pos 0
-                // Join them if multiple
-                this.lcd.clear();
-                this.lcd.print(keys.join(" "));
-            }
-
             // Execute a number of cycles per frame
             for (let i = 0; i < 12000; i++) {
                 this.cpu.step();
@@ -80,6 +75,8 @@ export class Emulator {
     }
 
     public loadRom(data: Uint8Array) {
+        console.log(`[Emulator] Loading ROM. Size: ${data.length} bytes`);
+        // If data is small (32KB), and we access >32KB, we need to know.
         this.internalRom.load(data);
     }
 }

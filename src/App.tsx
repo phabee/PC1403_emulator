@@ -12,8 +12,9 @@ function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const emulatorRef = useRef<Emulator | null>(null);
   const [running, setRunning] = useState(false);
-  // const [keyLayout] = useState<KeyPosition[]>(initialKeyLayout); // Removed to allow HMR updates
   const keyLayout = initialKeyLayout;
+
+  console.log('[App] Rendering. Emulator Ref:', emulatorRef.current ? 'Exists' : 'Null');
 
   useEffect(() => {
     if (canvasRef.current && !emulatorRef.current) {
@@ -53,6 +54,8 @@ function App() {
       window.removeEventListener('keyup', handleKeyUp);
     };
   }, []);
+
+
 
   const togglePower = () => {
     if (!emulatorRef.current) return;
@@ -124,6 +127,16 @@ function App() {
           <input type="file" accept=".bin,.rom" onChange={handleRomUpload} />
         </div>
         <p>Emulator Status: {running ? 'Running' : 'Stopped'}</p>
+
+        {/* Debug Log Output */}
+        {/* Debug Log Output - HIDDEN BY DEFAULT (View Console for logs)
+        {logs.length > 0 && (
+          <div className="debug-logs">
+            <strong>Debug Logs:</strong>
+            {logs.map((L, i) => <div key={i}>{L}</div>)}
+          </div>
+        )}
+        */}
       </div>
     </div>
   );

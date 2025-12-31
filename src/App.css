@@ -54,8 +54,8 @@ body {
   height: 7%;
 
   /* Debug Visibility: Highlight the container so user can see it */
-  border: 2px solid red;
-  background-color: rgba(0, 255, 0, 0.2);
+  /* border: 2px solid red; */
+  /* background-color: rgba(0, 255, 0, 0.2); */
 
   display: flex;
   align-items: center;
@@ -129,4 +129,32 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.debug-logs {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.85);
+  color: #00ff00;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 11px;
+  padding: 10px;
+  z-index: 9999;
+  border: 2px solid #444;
+  border-radius: 4px;
+  pointer-events: auto;
+  /* Enable scrolling */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+.debug-logs div {
+  margin-bottom: 2px;
+  border-bottom: 1px solid #222;
+  word-break: break-all;
+  white-space: pre-wrap;
 }

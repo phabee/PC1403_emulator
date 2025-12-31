@@ -1,6 +1,7 @@
 import { FONT_5X7 } from './Font5x7';
+import type { IBusDevice } from './Bus';
 
-export class Lcd {
+export class Lcd implements IBusDevice {
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
     private memory: Uint8Array;
@@ -11,17 +12,31 @@ export class Lcd {
         if (!context) throw new Error('Could not get canvas context');
         this.ctx = context;
 
-        // Initialize placeholder display memory
-        this.memory = new Uint8Array(1024);
+        // Initialize display memory (24 chars)
+        this.memory = new Uint8Array(24);
+        this.memory.fill(32); // Start with Spaces
     }
 
-    public getMemory() {
-        return this.memory;
+    // Bus Device Implementation
+    public read(addr: number): number {
+        // Map 0x00 - 0x17 to the 24 chars
+        if (addr >= 0 && addr < this.memory.length) {
+            return this.memory[addr];
+        }
+        return 0;
+    }
+
+    public write(addr: number, val: number) {
+        if (addr >= 0 && addr < this.memory.length) {
+            this.memory[addr] = val;
+            this.drawChar(addr, val);
+        }
     }
 
     public clear() {
         this.ctx.fillStyle = '#9ea7a1'; // LCD background color
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.memory.fill(32); // Space
     }
 
     public setPixel(x: number, y: number, on: boolean) {
@@ -29,25 +44,43 @@ export class Lcd {
         this.ctx.fillRect(x, y, 1, 1);
     }
 
-    public print(text: string, pos: number = 0) {
-        let cursorX = pos * 6;
-        for (let i = 0; i < text.length; i++) {
-            const char = text[i].toUpperCase();
-            const pattern = FONT_5X7[char] || FONT_5X7[' '];
+    private drawChar(pos: number, charCode: number) {
+        const char = String.fromCharCode(charCode).toUpperCase();
 
-            // Draw 5 columns
+        let pattern = FONT_5X7[char];
+
+        const xStart = pos * 6;
+        this.ctx.fillStyle = '#9ea7a1';
+        this.ctx.fillRect(xStart, 0, 6, 8); // Clear
+
+        if (!pattern) {
+            // Unknown char: Draw a box to make it visible
+            if (charCode === 32) { // True Space
+                pattern = FONT_5X7[' '];
+            } else {
+                // Garbage / Unknown Symbol -> Checkerboard / Box
+                this.ctx.fillStyle = '#000000';
+                this.ctx.strokeRect(xStart + 0.5, 0.5, 4, 6);
+                return;
+            }
+        }
+
+        if (pattern) {
             for (let col = 0; col < 5; col++) {
                 const bits = pattern[col];
                 for (let row = 0; row < 7; row++) {
-                    // Pattern: LSB (bit 0) is top pixel
                     const on = (bits >> row) & 1;
-                    this.setPixel(cursorX + col, row, !!on);
+                    this.setPixel(xStart + col, row, !!on);
                 }
             }
-            // Clear 6th column (spacing)
-            for (let row = 0; row < 7; row++) this.setPixel(cursorX + 5, row, false);
+        }
+    }
 
-            cursorX += 6;
+    public print(text: string, pos: number = 0) {
+        for (let i = 0; i < text.length; i++) {
+            if (pos + i >= this.memory.length) break;
+            const code = text.charCodeAt(i);
+            this.write(pos + i, code);
         }
     }
 }

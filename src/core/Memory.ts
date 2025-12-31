@@ -45,7 +45,10 @@ export class Memory implements IBusDevice {
     }
 
     public write(address: number, value: number): void {
-        if (this.readOnly) return;
+        if (this.readOnly) {
+            console.warn(`[Memory] Ignored Write to ReadOnly Address: 0x${address.toString(16).toUpperCase()} Value: 0x${value.toString(16)}`);
+            return;
+        }
         if (address < 0 || address >= this.size) return;
         this.data[address] = value;
     }

@@ -254,5 +254,21 @@
         "left": "361px",
         "width": "29px",
         "height": "15px"
+    },
+    {
+        "name": "ON",
+        "label": "ON",
+        "top": "10%",
+        "left": "83%",
+        "width": "5%",
+        "height": "5%"
+    },
+    {
+        "name": "CLS",
+        "label": "CLS",
+        "top": "10%",
+        "left": "75%",
+        "width": "5%",
+        "height": "5%"
     }
 ]
