@@ -1,15 +1,9 @@
+import { FONT_5X7 } from './Font5x7';
+
 export class Lcd {
     private canvas: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
-    private memory: Uint8Array; // Display memory? 
-    // PC-1403 has specific display RAM or it's part of SC61860 LCD controller.
-    // SC61860 has a built-in LCD controller.
-    // Display RAM is usually internally mapped in the CPU or a specific memory range.
-    // Docs say: "Display memory at 0x0000-0x00..?" No, usually internal RAM or dedicated registers.
-    // Or mapped to External Memory?
-    // Let's assume it receives commands or we map a buffer.
-
-    // For MVP, lets just expose a method `drawPixel(x, y, state)` and `clear()`.
+    private memory: Uint8Array;
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas;
@@ -19,12 +13,6 @@ export class Lcd {
 
         // Initialize placeholder display memory
         this.memory = new Uint8Array(1024);
-
-        // Set up scaling?
-        // PC-1403 is 1 line, 24 characters (5x7 dots)
-        // 24 * 5 = 120 (plus spacing)
-        // Actually 24 chars * 6 pixels (5+1 space) = 144 pixels wide?
-        // Let's start with a buffer.
     }
 
     public getMemory() {
@@ -38,8 +26,28 @@ export class Lcd {
 
     public setPixel(x: number, y: number, on: boolean) {
         this.ctx.fillStyle = on ? '#000000' : '#889088'; // Active / Inactive pixel
-        // Draw a small rect
-        const scale = 4;
-        this.ctx.fillRect(x * scale, y * scale, scale - 1, scale - 1);
+        this.ctx.fillRect(x, y, 1, 1);
+    }
+
+    public print(text: string, pos: number = 0) {
+        let cursorX = pos * 6;
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i].toUpperCase();
+            const pattern = FONT_5X7[char] || FONT_5X7[' '];
+
+            // Draw 5 columns
+            for (let col = 0; col < 5; col++) {
+                const bits = pattern[col];
+                for (let row = 0; row < 7; row++) {
+                    // Pattern: LSB (bit 0) is top pixel
+                    const on = (bits >> row) & 1;
+                    this.setPixel(cursorX + col, row, !!on);
+                }
+            }
+            // Clear 6th column (spacing)
+            for (let row = 0; row < 7; row++) this.setPixel(cursorX + 5, row, false);
+
+            cursorX += 6;
+        }
     }
 }

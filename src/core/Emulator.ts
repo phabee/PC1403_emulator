@@ -44,6 +44,7 @@ export class Emulator {
     }
 
     public boot() {
+        this.lcd.clear(); // Ensure screen is clean on boot
         this.cpu.reset();
         this.start();
     }
@@ -51,6 +52,16 @@ export class Emulator {
     public start() {
         if (this.animationFrameId) return;
         const loop = () => {
+            // Echo Test Mode: Check keys and print
+            // TODO: Remove this once CPU logic is running
+            const keys = this.keyboard.getPressedKeys();
+            if (keys.length > 0) {
+                // Determine cursor position? For now just print first key at pos 0
+                // Join them if multiple
+                this.lcd.clear();
+                this.lcd.print(keys.join(" "));
+            }
+
             // Execute a number of cycles per frame
             for (let i = 0; i < 12000; i++) {
                 this.cpu.step();
@@ -65,6 +76,7 @@ export class Emulator {
             cancelAnimationFrame(this.animationFrameId);
             this.animationFrameId = null;
         }
+        this.lcd.clear(); // Clear screen on stop/power off
     }
 
     public loadRom(data: Uint8Array) {

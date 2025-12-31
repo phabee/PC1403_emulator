@@ -47,16 +47,16 @@ body {
 
 .lcd-container {
   position: absolute;
-  top: 15%;
-  /* Adjust based on image */
-  left: 20%;
-  /* Adjust based on image */
-  width: 50%;
-  /* Adjust based on image */
-  height: 10%;
-  /* Adjust based on image */
-  background-color: #9ea7a140;
-  /* Transparent greenish overlay to visualize position during debug */
+  /* Initial Estimates - Please Adjust manually */
+  top: 21%;
+  left: 18%;
+  width: 34%;
+  height: 7%;
+
+  /* Debug Visibility: Highlight the container so user can see it */
+  border: 2px solid red;
+  background-color: rgba(0, 255, 0, 0.2);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,10 +64,9 @@ body {
 }
 
 .lcd-canvas {
-  width: 95%;
-  /* Fit inside container with margin */
-  height: 80%;
-  image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
+  image-rendering: optimizeQuality;
   /* Sharp pixels */
 }
 

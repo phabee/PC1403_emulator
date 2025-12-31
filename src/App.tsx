@@ -4,6 +4,7 @@ import { Emulator } from './core/Emulator';
 import faceplateWith from './assets/pc1403_faceplate.jpg';
 import { mapPhysicalKey } from './utils/keyMapping';
 import initialKeyLayout from './config/key_mapping.json';
+import { LcdDisplay } from './ui/LcdDisplay';
 
 
 
@@ -90,9 +91,7 @@ function App() {
         <img src={faceplateWith} className="faceplate-bg" alt="PC-1403" />
 
         {/* LCD Layer */}
-        <div className="lcd-container">
-          <canvas ref={canvasRef} width={200} height={40} className="lcd-canvas" />
-        </div>
+        <LcdDisplay ref={canvasRef} />
 
         {/* Clickable Overlay Layer */}
         <div className="keys-overlay">

@@ -2,6 +2,7 @@ import { KEY_MAP } from './KeyMap';
 
 export class Keyboard {
     private matrix: boolean[][] = [];
+    private pressedKeys: Set<string> = new Set();
 
     constructor() {
         for (let i = 0; i < 16; i++) {
@@ -10,10 +11,20 @@ export class Keyboard {
     }
 
     public setKey(keyName: string, pressed: boolean) {
+        if (pressed) {
+            this.pressedKeys.add(keyName);
+        } else {
+            this.pressedKeys.delete(keyName);
+        }
+
         const map = KEY_MAP[keyName];
         if (map) {
             this.matrix[map.strobe][map.bit] = pressed;
         }
+    }
+
+    public getPressedKeys(): string[] {
+        return Array.from(this.pressedKeys);
     }
 
     public read(strobePattern: number): number {
